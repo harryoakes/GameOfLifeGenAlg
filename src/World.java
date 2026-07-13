@@ -8,6 +8,28 @@ public class World {
         cells = new boolean[width][height];
     }
 
+    public void initialiseWorld(boolean[][] grid) {
+        int gridWidth = grid.length;
+        int gridHeight = grid[0].length;
+        if (gridWidth > cells.length || gridHeight > cells[0].length) {
+            throw new IllegalArgumentException("Grid dimensions too large");
+        }
+
+        int startX = (cells.length - gridWidth) / 2;
+        int startY = (cells[0].length - gridHeight) / 2;
+
+        for (int x = 0; x < gridWidth; x++) {
+            for (int y = 0; y < gridHeight; y++) {
+                cells[startX + x][startY + y] = grid[x][y];
+            }
+        }
+    }
+
+    private void setCell(int x, int y, boolean alive) {
+        if (x >= 0 && x < cells.length && y >= 0 && y < cells[0].length) {
+            cells[x][y] = alive;
+        }
+    }
 
     public void timeStep() {
         boolean[][] newCells = new boolean[cells.length][cells[0].length];
