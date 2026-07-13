@@ -8,6 +8,10 @@ public class World {
         cells = new boolean[width][height];
     }
 
+    /**
+     * Initialises the world with a grid / chromosome, placing it in the center of the world.
+     * @param grid The 2D array which is the start state.
+     */
     public void initialiseWorld(boolean[][] grid) {
         int gridWidth = grid.length;
         int gridHeight = grid[0].length;
@@ -31,6 +35,9 @@ public class World {
         }
     }
 
+    /**
+     * Progresses the world by one step using conways game of life rules.
+     */
     public void timeStep() {
         boolean[][] newCells = new boolean[cells.length][cells[0].length];
 
@@ -47,6 +54,12 @@ public class World {
         cells = newCells;
     }
 
+    /**
+     * Finds the number of alive neighbors for a given cell.
+     * @param x The x coordinate of the cell.
+     * @param y The y coordinate of the cell.
+     * @return The number of alive neighbors, min 0, max 8.
+     */
     private int getNeighborCount(int x, int y) {
         int count = 0;
         for (int i = -1; i <= 1; i++) {
