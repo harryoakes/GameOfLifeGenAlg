@@ -1,7 +1,13 @@
+/**
+ * The Chromosome is an individual in my genetic algorithms population
+ */
 public class Chromosome {
     private boolean[][] genes;
     private double fitness;
 
+    /**
+     * Creates the random genes and sets the fitness to 0
+     */
     public Chromosome() {
         fitness = 0;
         for(int i = 0; i < genes.length; i++) {
