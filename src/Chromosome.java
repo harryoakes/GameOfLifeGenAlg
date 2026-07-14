@@ -17,6 +17,15 @@ public class Chromosome {
         }
     }
 
+    /**
+     * Creates a chromosome with the given genes and sets the fitness to 0
+     * @param genes The genes of the chromosome
+     */
+    public Chromosome(boolean[][] genes) {
+        this.genes = genes;
+        fitness = 0;
+    }
+
     public boolean[][] getGenes() {
         return genes;
     }
