@@ -14,4 +14,8 @@ public class Population {
             chromosome[i] = new Chromosome();
         }
     }
+
+    public Chromosome[] getChromosomes() {
+        return chromosome;
+    }
 }
