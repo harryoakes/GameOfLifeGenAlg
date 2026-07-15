@@ -78,4 +78,20 @@ public class World {
         }
         return count;
     }
+
+    /**
+     * Counts the number of alive cells in the world.
+     * @return The number of alive cells.
+     */
+    public int countAliveCells() {
+        int count = 0;
+        for (int x = 0; x < cells.length; x++) {
+            for (int y = 0; y < cells[0].length; y++) {
+                if (cells[x][y]) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
 }
