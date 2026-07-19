@@ -18,6 +18,12 @@ public class GeneticAlgorithm {
         return null;
     }
 
+    /**
+     * Evalutates the fitness of a chromomsome by simulating the chromosome in a world and seeing how far it strays from
+     * its initial number of alive cells. Uses the fitness to set the fitness of the chromosome
+     * @param c The chromosome to evaluate/set the fitness of
+     * @param steps The number of steps to simulate the world for
+     */
     private void evaluateFitnessSimple(Chromosome c, int steps) {
         World world = new World(50, 50);
         world.initialiseWorld(c.getGenes());
