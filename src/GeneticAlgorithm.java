@@ -35,4 +35,23 @@ public class GeneticAlgorithm {
         double fitness = Math.abs(averageAlive - numAlive[0]);
         c.setFitness(fitness);
     }
+
+    private Chromosome[] selectionTournament(int tournamentSize, int numWinners) {
+        Chromosome[] winners = new Chromosome[numWinners];
+        for (int i = 0; i < numWinners; i++) {
+            Chromosome[] tournament = new Chromosome[tournamentSize];
+            for (int j = 0; j < tournamentSize; j++) {
+                int randomIndex = (int) (Math.random() * population.getChromosomes().length);
+                tournament[j] = population.getChromosomes()[randomIndex];
+            }
+            Chromosome best = tournament[0];
+            for (int j = 1; j < tournamentSize; j++) {
+                if (tournament[j].getFitness() > best.getFitness()) {
+                    best = tournament[j];
+                }
+            }
+            winners[i] = best;
+        }
+        return winners;
+    }
 }
