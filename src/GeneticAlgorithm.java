@@ -36,6 +36,12 @@ public class GeneticAlgorithm {
         c.setFitness(fitness);
     }
 
+    /**
+     * Selects the best chromosomes from the population using tournament selection
+     * @param tournamentSize The number of chromosomes that compete in each tournament
+     * @param numWinners The number of winners returned from the overall tournament
+     * @return An array of the best chromosomes from the population
+     */
     private Chromosome[] selectionTournament(int tournamentSize, int numWinners) {
         Chromosome[] winners = new Chromosome[numWinners];
         for (int i = 0; i < numWinners; i++) {
