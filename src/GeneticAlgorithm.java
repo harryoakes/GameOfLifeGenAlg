@@ -66,4 +66,26 @@ public class GeneticAlgorithm {
         }
         return winners;
     }
+
+    /**
+     * Crosses over two chromosomes to create a new chromosome using single point crossover
+     * @param parent1 The first parent chromosome
+     * @param parent2 The second parent chromosome
+     * @return A new chromosome created from the crossover of the two parents
+     */
+    private Chromosome crossover(Chromosome parent1, Chromosome parent2) {
+        boolean[][] genes1 = parent1.getGenes();
+        boolean[][] genes2 = parent2.getGenes();
+        boolean[][] newGenes = new boolean[genes1.length][genes1[0].length];
+        int midpoint = genes1.length / 2;
+
+        for (int i = 0; i < midpoint; i++) {
+            System.arraycopy(genes1[i], 0, newGenes[i], 0, genes1[i].length);
+        }
+        for (int i = midpoint; i < genes2.length; i++) {
+            System.arraycopy(genes2[i], 0, newGenes[i], 0, genes2[i].length);
+        }
+
+        return new Chromosome(newGenes);
+    }
 }
