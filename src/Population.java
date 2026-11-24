@@ -15,6 +15,10 @@ public class Population {
         }
     }
 
+    public Population(Chromosome[] chromosome) {
+        this.chromosome = chromosome;
+    }
+
     public Chromosome[] getChromosomes() {
         return chromosome;
     }
