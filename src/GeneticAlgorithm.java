@@ -8,14 +8,26 @@ public class GeneticAlgorithm {
     public Chromosome run(int iterations) {
         for (int i = 0; i < iterations; i++) {
             for (Chromosome c : population.getChromosomes()) {
-                evaluateFitnessSimple(c,100);
+                evaluateFitnessSimple(c, 100);
             }
-            //selection
-            //crossover
-            //mutation
+            Chromosome[] selected = selectionTournament(5, population.getChromosomes().length / 2);
+            Chromosome[] newGeneration = new Chromosome[population.getChromosomes().length];
+            for (int j = 0; j < newGeneration.length; j++) {
+                Chromosome parent1 = selected[(int) (Math.random() * selected.length)];
+                Chromosome parent2 = selected[(int) (Math.random() * selected.length)];
+                Chromosome offspring = crossover(parent1, parent2);
+                mutate(offspring, 0.01);
+                newGeneration[j] = offspring;
+            }
+            population = new Population(newGeneration);
         }
-        //return best chromosome
-        return null;
+        Chromosome best = population.getChromosomes()[0];
+        for (Chromosome c : population.getChromosomes()) {
+            if (c.getFitness() > best.getFitness()) {
+                best = c;
+            }
+        }
+        return best;
     }
 
     /**
@@ -87,5 +99,9 @@ public class GeneticAlgorithm {
         }
 
         return new Chromosome(newGenes);
+    }
+
+    private void mutate(Chromosome chromosome, double mutationRate) {
+
     }
 }
