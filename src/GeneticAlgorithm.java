@@ -102,6 +102,13 @@ public class GeneticAlgorithm {
     }
 
     private void mutate(Chromosome chromosome, double mutationRate) {
-
+        boolean[][] genes = chromosome.getGenes();
+        for (int i = 0; i < genes.length; i++) {
+            for (int j = 0; j < genes[i].length; j++) {
+                if (Math.random() < mutationRate) {
+                    genes[i][j] = !genes[i][j];
+                }
+            }
+        }
     }
 }
