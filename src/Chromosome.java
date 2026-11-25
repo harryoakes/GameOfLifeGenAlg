@@ -26,6 +26,19 @@ public class Chromosome {
         fitness = 0;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Fitness: ").append(fitness).append("\nGenes:\n");
+        for (boolean[] row : genes) {
+            for (boolean gene : row) {
+                sb.append(gene ? "1" : "0");
+            }
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
+
     public boolean[][] getGenes() {
         return genes;
     }
