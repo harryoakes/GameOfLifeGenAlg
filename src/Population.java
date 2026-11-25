@@ -8,10 +8,10 @@ public class Population {
      * Creates a population of chromosomes with the given size
      * @param populationSize The size of the population
      */
-    public Population(int populationSize) {
+    public Population(int populationSize, int chromosomeWidth, int chromosomeHeight) {
         chromosome = new Chromosome[populationSize];
         for (int i = 0; i < populationSize; i++) {
-            chromosome[i] = new Chromosome();
+            chromosome[i] = new Chromosome(chromosomeWidth, chromosomeHeight);
         }
     }
 

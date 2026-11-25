@@ -8,10 +8,11 @@ public class Chromosome {
     /**
      * Creates the random genes and sets the fitness to 0
      */
-    public Chromosome() {
+    public Chromosome(int width, int height) {
         fitness = 0;
-        for(int i = 0; i < genes.length; i++) {
-            for(int j = 0; j < genes[i].length; j++) {
+        genes = new boolean[width][height];
+        for(int i = 0; i < width; i++) {
+            for(int j = 0; j < height; j++) {
                 genes[i][j] = Math.random() < 0.5;
             }
         }

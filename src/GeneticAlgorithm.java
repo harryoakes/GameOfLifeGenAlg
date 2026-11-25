@@ -1,8 +1,8 @@
 public class GeneticAlgorithm {
     private Population population;
 
-    public GeneticAlgorithm(int populationSize) {
-        population = new Population(populationSize);
+    public GeneticAlgorithm(int populationSize, int chromosomeWidth, int chromosomeHeight) {
+        population = new Population(populationSize, chromosomeWidth, chromosomeHeight);
     }
 
     public Chromosome run(int iterations) {
